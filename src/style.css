@@ -1,0 +1,98 @@
+/* style.css */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Fixes screen to full screen */
+  background-color: #020617;
+  color: #f1f5f9;
+  font-family: 'Plus Jakarta Sans', sans-serif; /* cite: 1 */
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+}
+/* Main Container */
+.app-shell {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* 1. FIXED SIDEBAR */
+.sidebar-glass {
+  width: 280px;
+  background: rgba(15, 23, 42, 0.6); /* Translucent sidebar */
+  backdrop-filter: blur(20px); /* Frosted glass effect */
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  height: 100%;
+}
+
+/* 2. MAIN CONTENT & FIXED HEADER */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; /* Pins the topbar */
+}
+
+.topbar {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+}
+
+/* 3. INDEPENDENT SCROLL AREA (The Core Fix) */
+.scroll-container {
+  flex: 1;
+  overflow-y: auto; /* Only the books area scrolls */
+  padding: 0 60px 80px 60px;
+}
+
+/* 4. THE WIDE 4-COLUMN GRID */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Matching the wide layout */
+  gap: 25px;
+}
+/* Glass Book Card */
+.glass-card {
+  background: rgba(30, 41, 59, 0.5); /* Semi-transparent slate */
+  backdrop-filter: blur(12px); /* Blurred glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s; /* cite: 1 */
+}
+
+.glass-card:hover {
+  transform: translateY(-8px); /* Card lifts on hover */
+  border-color: rgba(56, 189, 248, 0.4); /* Cyan glow */
+}
+
+/* Professional Status Badges */
+.status-pill {
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.status-pill.available {
+  background: rgba(16, 185, 129, 0.1); /* Soft green glow */
+  color: #10b981;
+}
+
+.status-pill.issued {
+  background: rgba(239, 68, 68, 0.1); /* Soft red glow */
+  color: #ef4444;
+}
